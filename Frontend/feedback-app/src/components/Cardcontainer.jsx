@@ -10,7 +10,7 @@ const cardArr = [
     {
         src : Trainings,
         name : 'Trainings',
-        to: '/trainings'
+        to: '/training'
     },
      {
         src : Studio,

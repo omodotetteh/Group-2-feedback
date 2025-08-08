@@ -37,7 +37,12 @@ function Studioform() {
         leftText="Poor"
         rightText="Excellent"
       />
-      <Checkbox />
+      <Checkbox 
+      text="Was it easy to book your session or service?"
+      name="feedback"
+      leftText="Yes"
+      rightText="No"
+      />
       <InputText
         label="If No, please tell us why"
         type="text"
@@ -48,7 +53,12 @@ function Studioform() {
         leftText="Poor"
         rightText="Excellent"
       />
-      <Checkbox />
+      <Checkbox 
+      text="Was the equipment provided (e.g cameras, microphones, lighting, etc.) in good working condition and suitable for your needs?"
+      name="feedback"
+      leftText="Yes"
+      rightText="No"
+      />
       <ToggleButton
         name="usesProduct"
         value={form.usesProduct}
