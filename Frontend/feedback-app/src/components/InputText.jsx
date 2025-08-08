@@ -5,13 +5,13 @@ function InputText(props) {
     <div> 
       <label htmlFor="typehere">{props.label}</label> 
       <input
-      type={props.type}
-      placeholder={props.placeholder}
-      id='typehere'
-      className=' my-2 min-w-full min-h-10 block rounded border border-black mb-8 pl-2' 
-      value= {props.value}
-      name= {props.name}
-      onChange= {props.onChange}
+        type={props.type}
+        placeholder={props.placeholder}
+        id='typehere'
+        className='  min-w-full min-h-10 block rounded-xl border border-black mb-8 p-3' 
+        value= {props.value}
+        name= {props.name}
+        onChange= {props.onChange}
       />
       </div>
   )

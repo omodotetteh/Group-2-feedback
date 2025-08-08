@@ -27,7 +27,11 @@ function Studioform() {
         Studio
       </h2>
       <form >
-      <DropdownSeclect />
+      <DropdownSeclect
+        label="Service"
+        name="service"
+        options={["Photography", "Podcast", "Videography", "Panel Session"]}
+        />
       <RangeInput
         text="How would you rate your overall experience at our studio?"
         leftText="Poor"
