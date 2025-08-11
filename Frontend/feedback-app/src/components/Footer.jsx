@@ -3,10 +3,10 @@ import Logo from '../assets/Netizens_logo.png'
 import Phone from '../assets/phone.png'
 import Email from '../assets/email.png'
 import Location from '../assets/location.png'
-import Twitter from '../assets/twitter.jpg'
+import Twitter from '../assets/twitter.png'
 import Youtube from '../assets/youtubelogo.png'
 import Facebook from '../assets/facebooklogo.png'
-import Insta from '../assets/insta.jpg'
+import Insta from '../assets/insta.png'
 
 
 

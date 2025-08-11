@@ -20,13 +20,13 @@ function Studioform() {
   };
   return (
     
-    <div className="mx-20">
+    <div className="flex flex-col justify-center items-center mx-20">
       
       <ScrollToTop/>
       <h2 className="text-center font-medium my-12 text-3xl text-[#3B027D]">
         Studio
       </h2>
-      <form >
+      <form className="bg-white p-8 rounded-xl  w-full max-w-[100%]">
       <DropdownSeclect
         label="Service"
         name="service"
