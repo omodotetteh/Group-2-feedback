@@ -4,23 +4,25 @@ import Button from './Button';
 import { useState } from 'react';
 
 
-function FeedbackForm() {
-  const [form, setForm] = useState({name:'', email:'', feedback:''});
-  
-
-  function handleChange (e){
-    setForm({...form, [e.target.name ]: e.target.value});
- 
-}
-
-    
-    
-  
-  function handleSubmit (e){
-    e.preventDefault();
-    console.log(form);
-    // alert(`Name: ${form.name}\nEmail: ${form.email}\nFeedback: ${form.feedback}`);
-  }
+function GeneralFeedback() {
+   const initialFormData= {
+          name: "",
+          email: "",
+          general_feedback: "",
+          
+        };
+      
+        const [formData, setFormData] = useState(initialFormData);
+        const handleChange = (e) => {
+          const { name, value } = e.target;
+          setFormData((prev) => ({ ...prev, [name]: value }));
+        };
+      
+        const handleSubmit = (e) => {
+          e.preventDefault();
+          console.log("General Feedback:", formData);
+          setFormData(initialFormData);
+        };
 
   return (
     <div className="flex flex-col items-center mt-20 px-6 py-10 gap-10 border-2 border-[#33026C] rounded-xl w-[90%] max-w-7xl mx-auto">
@@ -35,16 +37,46 @@ function FeedbackForm() {
       {/* <div className='w-[1189px] p-10 gap-12'> */}
         <div className='w-full max-w-4xl p-10 gap-12'>
 
-        <form action="#" className=' m-auto min-w-full  ' onSubmit={handleSubmit}>
-        <InputText label='Name' type='text' placeholder='Jane Doe' name='name' value={form.name}  onChange={handleChange}/>
+        <form  
+        className=' m-auto min-w-full  ' 
+        onSubmit={handleSubmit}
+        >
 
-        <InputText label='Email' type='email' placeholder='janedoe@gmail.com' name='email' value={form.email} onChange={handleChange}/>
+        <InputText
+          label='Name' 
+          type='text' 
+          placeholder='Jane Doe' 
+          name='name' 
+          value={formData.name} 
+          onChange={handleChange}
+        />
+
+        <InputText 
+          label='Email' 
+          type='email' 
+          placeholder='janedoe@gmail.com' 
+          name='email' 
+          value={formData.email} 
+          onChange={handleChange}
+        />
             
-            <label htmlFor="feedback" className='block text-2xl font-normal'>Your Feedback</label>
-            <textarea id="feedback" placeholder='Type here' className=' min-w-full min-h-30 block m-auto rounded-xl border border-black p-5' name='feedback' value={form.feedback} onChange={handleChange}></textarea>
+        <label htmlFor="feedback" className='block text-2xl font-normal'>Your Feedback</label>
+            <textarea 
+            id="general_feedback" 
+            placeholder='Type here' 
+            className=' min-w-full min-h-30 block m-auto rounded-xl border border-black p-5' 
+            name='general_feedback' 
+            value={formData.general_feedback} 
+            onChange={handleChange}
+            ></textarea>
+            
             <div className='flex justify-center mt-6'>
-              <Button type="submit" text="Submit"/>
+              <Button 
+              type="submit" 
+              text="Submit"
+              />
             </div>
+            
         </form>
       </div>
 
@@ -52,11 +84,11 @@ function FeedbackForm() {
   );
 
 }
-export default FeedbackForm;
+export default GeneralFeedback;
 
 
 
-// function FeedbackForm() {
+// function GeneralFeedback() {
 //   return (
 //     <div className='flex flex-col items-center mt-20 m-auto w-8/9 border-[#33026C] rounded-xl min-h-full   px-6 py-10 gap-10 border-2'> 
 //       <div className='w-[567px] h-[87px] gap-3'>
@@ -80,4 +112,4 @@ export default FeedbackForm;
 //   )
 // }
 
-// export default FeedbackForm
+// export default GeneralFeedback

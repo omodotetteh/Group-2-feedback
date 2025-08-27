@@ -1,11 +1,9 @@
 import React, {useState} from "react";
-import DropdownSeclect from "../components/DropdownSeclect";
 import RangeInput from "../components/RangeInput";
-import Checkbox from "../components/Checkbox";
+import Radio from "../components/Radio";
 import InputText from "../components/InputText";
 import Button from "../components/Button";
 import Outlinebutton from "../components/Outlinebutton";
-import ToggleButton from "../components/ToggleButton";
 import ScrollToTop from "../components/ScrollToTop";
 import RadioButtons from "../components/RadioButtons";
 
@@ -22,7 +20,7 @@ function ConferenceHall() {
     cleanRestroom: "",
     cleanRestroom_reason: "",
     improvement: "",
-    likely_to_recommend: "20"
+    likely_to_recommend: "2"
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -49,17 +47,15 @@ function ConferenceHall() {
         className="bg-white p-8 rounded-xl w-full max-w-[100%]"
       >
         <RadioButtons
-          text="How would you rate your overall experience with our conference hall?"
+          label="How would you rate your overall experience with our conference hall?"
           name="overallExperience"
           options={["Poor", "Fair", "Good", "Very Good", "Excellent"]}
           selectedValue={formData.overallExperience}
-          onChange={(value) =>
-            setFormData((prev) => ({ ...prev, overallExperience: value }))
-          }
+          onChange={handleChange}
         />
 
-        <Checkbox
-          text="Did our venue meet your expectations for your event?"
+        <Radio
+          label="Did our venue meet your expectations for your event?"
           name="meet_expectation"
           leftText="Yes"
           rightText="No"
@@ -77,27 +73,23 @@ function ConferenceHall() {
         />
 
         <RadioButtons
-          text="How easy was it to book our venue?"
+          label="How easy was it to book our venue?"
           name="booking"
           options={["Very Difficult", "Difficult", "Neutral", "Easy", "Very Easy"]}
           selectedValue={formData.booking}
-          onChange={(value) =>
-            setFormData((prev) => ({ ...prev, booking: value }))
-          }
+          onChange={handleChange}
         />
 
         <RadioButtons
-          text="How would you rate the cleanliness and general upkeep of the hall?"
+          label="How would you rate the cleanliness and general upkeep of the hall?"
           name="rateCleanliness"
           options={["Poor", "Fair", "Good", "Very Good", "Excellent"]}
           selectedValue={formData.rateCleanliness}
-          onChange={(value) =>
-            setFormData((prev) => ({ ...prev, rateCleanliness: value }))
-          }
+          onChange={handleChange}
         />
 
-        <Checkbox
-          text="Was the audio-visual equipment (screen, microphones, sound system) functional and adequate for your needs?"
+        <Radio
+          label="Was the audio-visual equipment (screen, microphones, sound system) functional and adequate for your needs?"
           name="adequateEquipment"
           leftText="Yes"
           rightText="No"
@@ -114,8 +106,8 @@ function ConferenceHall() {
           onChange={handleChange}
         />
 
-        <Checkbox
-          text="Were the restroom facilities clean and easily accessible?"
+        <Radio
+          label="Were the restroom facilities clean and easily accessible?"
           name="cleanRestroom"
           leftText="Yes"
           rightText="No"
@@ -133,17 +125,15 @@ function ConferenceHall() {
         />
 
         <RadioButtons
-          text="How would you rate the professionalism and helpfulness of our staff?"
+          label="How would you rate the professionalism and helpfulness of our staff?"
           name="staffProffessionalism"
           options={["Very Poor", "Poor", "Neutral", "Good", "Excellent"]}
           selectedValue={formData.staffProffessionalism}
-          onChange={(value) =>
-            setFormData((prev) => ({ ...prev, staffProffessionalism: value }))
-          }
+          onChange={handleChange}
         />
 
         <RangeInput
-          text="How likely are you to recommend our conference hall to others?"
+          label="How likely are you to recommend our conference hall to others?"
           leftText="Not Likely"
           rightText="Extremely Likely"
           value={formData.likely_to_recommend}
@@ -155,6 +145,7 @@ function ConferenceHall() {
           Is there anything we could do to significantly improve our service?
           <textarea
             name="improvement"
+            placeholder="Type here"
             rows="4"
             value={formData.improvement}
             onChange={handleChange}

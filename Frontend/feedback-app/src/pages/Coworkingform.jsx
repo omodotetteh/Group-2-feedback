@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
 import Outlinebutton from '../components/Outlinebutton';
 import RadioButtons from '../components/RadioButtons';
+import ScrollToTop from '../components/ScrollToTop';
 
-const CoworkingForm = () => {
-  const [form, setForm] = useState({
-    reason: '',
-    cleanliness: 3,
-    experience: 3,
-    comfort: 3,
-    noise: 3,
-    professionalism: 3,
-    recommendation: 3,
+function CoworkingForm () {
+   const initialFormData= {
+     reason: '',
+    cleanliness: 2,
+    experience: 2,
+    comfort: 2,
+    noise: 2,
+    professionalism: 2,
+    recommendation: 2,
     amenities: '',
     improvement: '',
     overallExperience: ''
-  });
+  };
+
+  const [form, setForm] = useState(initialFormData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,18 +26,22 @@ const CoworkingForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', form);
+    console.log("Coworking Space Feedback:", form);
+    setForm(initialFormData);
     alert('Thanks for your feedback!');
   };
 
   return (
-    <div className="min-h-screen bg-gray-200 flex flex-col items-center justify-center p-6">
+    <div className="flex flex-col justify-center items-center mx-20">
+     <ScrollToTop />
+      <h2 className="text-center font-medium my-12 text-4xl text-[#3B027D]">
+        Co-working Space
+      </h2>
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-8 rounded-xl shadow-md w-full max-w-2xl"
+        className="bg-white p-8 rounded-xl w-full max-w-[100%]"
       >
-        <h1 className="text-2xl font-bold text-center mb-4">Co-working Space</h1>
-        <h2 className="text-purple-700 text-center text-lg font-semibold mb-6">Co-working Space</h2>
+     
 
         {/* Reason Dropdown */}
         <label className="block mb-2 font-medium">What is the primary reason you use our co-working space?</label>
@@ -44,7 +51,7 @@ const CoworkingForm = () => {
           onChange={handleChange}
           className="w-full p-2 mb-6 border rounded"
         >
-          <option value="">Select...</option>
+          <option value="" disabled>Select...</option>
           <option value="quiet">Quiet Workspace</option>
           <option value="networking">Networking</option>
           <option value="resources">Access to Resources</option>
@@ -65,16 +72,21 @@ const CoworkingForm = () => {
             <div className="flex justify-between text-sm text-gray-500 mb-1">
               <span>{key === 'recommendation' ? 'Not Likely' : 'Poor'}</span>
               <span>{key === 'recommendation' ? 'Extremely Likely' : 'Excellent'}</span>
-            </div>
-            <input
+            </div >
+            <div className="flex items-center gap-2 min-w-[80%]">
+              <input
               type="range"
               name={key}
               min="0"
               max="10"
+              step="0.5"
               value={form[key]}
               onChange={handleChange}
               className="w-full accent-green-600"
             />
+             <span className="font-semibold">{form[key]}</span>
+            </div>
+            
           </div>
         ))}
 
@@ -89,12 +101,12 @@ const CoworkingForm = () => {
         />
 
            <RadioButtons
-                text="How would you rate your overall experience with our conference hall?"
+                text="How would you rate your overall experience with our coworking space?"
                 name="overallExperience"
                 options={["Poor", "Fair", "Good"]}
-                value={form.overallExperience}
+                selectedValue={form.overallExperience}
                 onChange={handleChange}
-                />
+           />
 
         <label className="block mb-2 font-medium">Is there anything we could do to significantly improve our service?</label>
         <textarea
@@ -106,12 +118,14 @@ const CoworkingForm = () => {
         ></textarea>
 
         {/* Submit Button */}
-        <button
+        <div className="flex justify-center mt-6">
+          <button
           type="submit"
-          className="bg-purple-700 text-white w-full py-2 rounded hover:bg-purple-800 transition"
-        >
+          className="bg-[#3B027D] hover:bg-[hsl(268,97%,35%)] gap-2.5 py-2.5 p-2.5 text-xl font-semibold text-white hover:cursor-pointer  rounded-xl">
           Submit
         </button>
+        </div>
+        
       </form>
         <div className='flex justify-center mt-6'>
          <Outlinebutton text="Back to Home" to="/" />

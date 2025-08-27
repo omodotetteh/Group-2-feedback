@@ -1,118 +1,178 @@
 import React, {useState} from "react";
 import DropdownSeclect from "../components/DropdownSeclect";
 import RangeInput from "../components/RangeInput";
-import Checkbox from "../components/Checkbox";
+import Radio from "../components/Radio";
 import InputText from "../components/InputText";
 import Button from "../components/Button";
 import Outlinebutton from "../components/Outlinebutton";
-import ToggleButton from "../components/ToggleButton";
 import ScrollToTop from "../components/ScrollToTop";
 
 function Studioform() {
-  const [form, setForm] = useState({
-    usesProduct: false,
-    likesFeature: false,
-    wouldRecommend: false,
-  });
-
-  const handleToggle = (fieldName, value) => {
-    setForm(prev => ({ ...prev, [fieldName]: value }));
-  };
+  const initialFormData= {
+        service: "",
+        overall_experience: "2",
+        easy_to_book: "",
+        easy_to_book_reason: "",
+        comfort: "2",
+        suitable_equipment: "",
+        suitable_equipment_reason: "",
+        service_quality: "2",
+        staff_professionalism: "2",
+        likely_to_reuse: "2",
+        likely_to_recommend: "2",
+        suggest_improvement: "",
+      };
+    
+      const [formData, setFormData] = useState(initialFormData);
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+      };
+    
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("Studio Feedback:", formData);
+        setFormData(initialFormData);
+      };
   return (
     
     <div className="flex flex-col justify-center items-center mx-20">
       
       <ScrollToTop/>
+
       <h2 className="text-center font-medium my-12 text-3xl text-[#3B027D]">
         Studio
       </h2>
-      <form className="bg-white p-8 rounded-xl  w-full max-w-[100%]">
+      
+      <form
+      className="bg-white p-8 rounded-xl  w-full max-w-[100%]"
+      onSubmit={handleSubmit}
+      >
+
       <DropdownSeclect
         label="Service"
         name="service"
+        value={formData.service}      
+        onChange={handleChange}         
         options={["Photography", "Podcast", "Videography", "Panel Session"]}
-        />
-      <RangeInput
-        text="How would you rate your overall experience at our studio?"
-        leftText="Poor"
-        rightText="Excellent"
-      />
-      <Checkbox 
-      text="Was it easy to book your session or service?"
-      name="feedback"
-      leftText="Yes"
-      rightText="No"
-      />
-      <InputText
-        label="If No, please tell us why"
-        type="text"
-        placeholder="Type here"
-      />
-      <RangeInput
-        text="How would you rate the comfort and atmosphere of the studio?"
-        leftText="Poor"
-        rightText="Excellent"
-      />
-      <Checkbox 
-      text="Was the equipment provided (e.g cameras, microphones, lighting, etc.) in good working condition and suitable for your needs?"
-      name="feedback"
-      leftText="Yes"
-      rightText="No"
-      />
-      <ToggleButton
-        name="usesProduct"
-        value={form.usesProduct}
-        onChange={handleToggle}
-/>
-
-      <InputText
-        label="If No, please tell us why"
-        type="text"
-        placeholder="Type here"
-      />
-      <RangeInput
-        text="How would you rate the quality of service (picture, videos etc.) you received?"
-        leftText="Poor"
-        rightText="Excellent"
-      />
-      <RangeInput
-        text="How would you rate the professionalism and helpfulness of our staff?"
-        leftText="Poor"
-        rightText="Excellent"
-      />
-      <RangeInput
-        text="How likely are you to use our studio services again in the future?"
-        leftText="Not Likely"
-        rightText="Extremely Likely"
-      />
-      <RangeInput
-        text="How likely are you to recommend our studio to others?"
-        leftText="Not Likely"
-        rightText="Extremely Likely"
       />
 
-      <label htmlFor="feedback" className="block text-xl my-4 font-normal">
-        Do you have any other comments or suggestions for improving this
-        service?
-      </label>
-      <textarea
-        name="feedback"
-        id="feedback"
-        placeholder="Type here"
-        className="min-w-full min-h-30 block m-auto rounded border border-black p-5"
-      ></textarea>
+       <RangeInput
+          label="How would you rate your overall experience at our studio?"
+          leftText="Poor"
+          rightText="Excellent"
+          value={formData.overall_experience}
+          onChange={handleChange}
+          name="overall_experience"
+       />
       
-        <div className='flex justify-center mt-6'>
-        <Button
-          type="button"
-          text="Submit"
-          className="bg-[#3B027D] hover:bg-[hsl(268,97%,35%)]  gap-2.5 py-2.5"
+      <Radio
+          label="Was it easy to book your session or service? "
+          name="easy_to_book"
+          leftText="Yes"
+          rightText="No"
+          value={formData.easy_to_book}
+          onChange={handleChange}
         />
+     
+      <InputText
+          label="If No, please tell us why"
+          type="text"
+          name="easy_to_book_reason"
+          placeholder="Type here"
+          value={formData.easy_to_book_reason}
+          onChange={handleChange}
+        />
+      
+      <RangeInput
+          label="How would you rate the comfort and atmosphere of the studio?"
+          leftText="Poor"
+          rightText="Excellent"
+          value={formData.comfort}
+          onChange={handleChange}
+          name="comfort"
+       />
+      
+      <Radio
+          label="Was the equipment provided (e.g cameras, microphones, lighting, etc.) in good working condition and suitable for your needs?"
+          name="suitable_equipment"
+          leftText="Yes"
+          rightText="No"
+          value={formData.suitable_equipment}
+          onChange={handleChange}
+      />
+
+      <InputText
+          label="If No, please tell us why"
+          type="text"
+          name="suitable_equipment_reason"
+          placeholder="Type here"
+          value={formData.suitable_equipment_reason}
+          onChange={handleChange}
+        />
+      
+      <RangeInput
+          label="How would you rate the quality of service (picture, videos etc.) you received?"
+          leftText="Poor"
+          rightText="Excellent"
+          value={formData.service_quality}
+          onChange={handleChange}
+          name="service_quality"
+       />
+
+      <RangeInput
+          label="How would you rate the professionalism and helpfulness of our staff?"
+          leftText="Poor"
+          rightText="Excellent"
+          value={formData.staff_professionalism}
+          onChange={handleChange}
+          name="staff_professionalism"
+       />
+      
+       <RangeInput
+          label="How likely are you to use our studio services again in the future?"
+          leftText="Not Likely"
+          rightText="Extremely Likely"
+          value={formData.likely_to_reuse}
+          onChange={handleChange}
+          name="likely_to_reuse"
+       />
+      
+      <RangeInput
+          label="How likely are you to recommend our studio to others?"
+          leftText="Not Likely"
+          rightText="Extremely Likely"
+          value={formData.likely_to_recommend}
+          onChange={handleChange}
+          name="likely_to_recommend"
+       />
+
+      <label className="block mb-2 font-medium">
+          Do you have any other comments or suggestions for improving this service?
+          <textarea
+            name="suggest_improvement"
+            placeholder="Type here"
+            rows="4"
+            value={formData.suggest_improvement}
+            onChange={handleChange}
+            className="w-full p-2 mb-6 border rounded"
+          ></textarea>
+        </label>
+      
+        <div className="flex justify-center mt-6">
+          <Button
+            type="submit"
+            text="Submit"
+            className="bg-[#3B027D] hover:bg-[hsl(268,97%,35%)] gap-2.5 py-2.5"
+          />
         </div>
+
         </form>
+
         <div className='flex justify-center mt-6'>
         <Outlinebutton text="Back to Home" to="/" />
         </div>
+
       </div>
     
   );
