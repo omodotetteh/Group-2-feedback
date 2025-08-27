@@ -6,6 +6,10 @@ import Trainingfbform from './pages/Trainingfbform';
 import CoworkingForm from './pages/Coworkingform';
 import ConferenceHall from './pages/ConferenceHall';
 import BusinessSolutions from './pages/BusinessSolutions';
+<<<<<<< HEAD
+=======
+import Dashboard from './pages/Dashboard';
+>>>>>>> ca01d73f73f5e185524114143b7cf75c05ecb7b3
 
 function App() {
   return (
@@ -17,6 +21,10 @@ function App() {
         <Route path="/cowork" element={<CoworkingForm/>}/>
         <Route path="/conference" element={<ConferenceHall/>}/>
         <Route path="/business" element={<BusinessSolutions/>}/>
+<<<<<<< HEAD
+=======
+        <Route path="/dashboard" element={<Dashboard/>}/>
+>>>>>>> ca01d73f73f5e185524114143b7cf75c05ecb7b3
       </Routes>
     </Router>
     
