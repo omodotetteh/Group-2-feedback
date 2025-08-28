@@ -7,6 +7,7 @@ function InputText(props) {
       <input
         type={props.type}
         placeholder={props.placeholder}
+        pattern={props.pattern}
         id='typehere'
         className='  min-w-full min-h-10 block rounded-xl border border-black mb-8 p-3' 
         value= {props.value}

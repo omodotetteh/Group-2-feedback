@@ -13,7 +13,7 @@ function Outlinebutton(props) {
         <span>&gt;</span>
       </div>
     </Link>
-  );g
+  );
 }
 
 export default Outlinebutton;

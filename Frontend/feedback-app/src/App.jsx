@@ -6,6 +6,7 @@ import Trainingfbform from './pages/Trainingfbform';
 import CoworkingForm from './pages/Coworkingform';
 import ConferenceHall from './pages/ConferenceHall';
 import BusinessSolutions from './pages/BusinessSolutions';
+import ContactUs from './pages/ContactUs';
 import Dashboard from './pages/Dashboard';
 
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/cowork" element={<CoworkingForm/>}/>
         <Route path="/conference" element={<ConferenceHall/>}/>
         <Route path="/business" element={<BusinessSolutions/>}/>
+        <Route path="/contactus" element={<ContactUs/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
       </Routes>
     </Router>
