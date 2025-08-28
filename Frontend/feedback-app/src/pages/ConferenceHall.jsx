@@ -156,11 +156,14 @@ function ConferenceHall() {
         <div className="flex justify-center mt-6">
           <Button
             type="submit"
+            text="Submit"
             className="bg-[#3B027D] hover:bg-[hsl(268,97%,35%)] gap-2.5 py-2.5"
+          />
+        </div>
       </form>
 
       <div className="flex justify-center mt-6">
-        <Outlinebutton text="Back to Home" to="/" />
+        <Outlinebutton text="Back to Home" to="/"/>
       </div>
     </div>
   );
