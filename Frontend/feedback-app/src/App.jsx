@@ -21,8 +21,6 @@ function App() {
         <Route path="/cowork" element={<CoworkingForm/>}/>
         <Route path="/conference" element={<ConferenceHall/>}/>
         <Route path="/business" element={<BusinessSolutions/>}/>
-<<<<<<< HEAD
-=======
         <Route path="/dashboard" element={<Dashboard/>}/>
 >>>>>>> ca01d73f73f5e185524114143b7cf75c05ecb7b3
       </Routes>
