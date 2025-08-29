@@ -156,7 +156,7 @@ function Trainingfbform() {
           name="likely_to_recommend"
         />
 
-        <label htmlFor="feedback" className="block text-xl my-4 font-normal">
+        <label htmlFor="feedback" className='text-xl font-normal'>
             Do you have any other comments or suggestions for improving this training or future trainings?
         </label>
         <textarea

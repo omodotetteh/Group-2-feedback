@@ -4,7 +4,7 @@ function DropdownSeclect(props) {
   const {label, name, value, onChange, options}=props;
   return (
     <div>
-      <label htmlFor={name}>{label}</label>
+      <label className='text-xl font-normal' htmlFor={name}>{label}</label>
       <select
         name={name}
         id={name}

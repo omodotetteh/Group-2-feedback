@@ -7,7 +7,7 @@ const rangeElements = [
 function RangeInput(props) {
   return (
     <div>
-      <p>{props.label}</p>
+      <p className='text-xl font-normal'>{props.label}</p>
 
       <div className="flex items-center justify-between mx-auto my-4">
         <span className="font-semibold mr-4">{props.leftText}</span>

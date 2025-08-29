@@ -7,7 +7,7 @@ function Radio(props) {
       <p className='text-xl font-normal'>{label}</p>
       <div className='flex items-center gap-10 my-6'> 
         <label className='flex  gap-2'>
-          <span>{leftText}</span>
+          <span className="font-semibold">{leftText}</span>
           <input
            type="radio" 
            name={name} 
@@ -27,7 +27,7 @@ function Radio(props) {
            checked={value === "no"} 
            onChange={onChange} 
           />
-          <span>{rightText}</span>
+          <span className="font-semibold">{rightText}</span>
         </label>
       </div>  
     </div>

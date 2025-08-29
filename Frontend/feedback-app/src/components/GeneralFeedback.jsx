@@ -60,7 +60,7 @@ function GeneralFeedback() {
           onChange={handleChange}
         />
             
-        <label htmlFor="feedback" className='block text-2xl font-normal'>Your Feedback</label>
+        <label htmlFor="feedback" className='text-xl font-normal'>Your Feedback</label>
             <textarea 
             id="general_feedback" 
             placeholder='Type here' 

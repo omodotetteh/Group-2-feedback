@@ -141,7 +141,7 @@ function ConferenceHall() {
           name="likely_to_recommend"
         />
 
-        <label className="block mb-2 font-medium">
+        <label className='text-xl font-normal'>
           Is there anything we could do to significantly improve our service?
           <textarea
             name="improvement"

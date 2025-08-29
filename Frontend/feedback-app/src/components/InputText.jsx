@@ -3,7 +3,7 @@ import React from 'react'
 function InputText(props) {
   return (
     <div> 
-      <label htmlFor="typehere">{props.label}</label> 
+      <label className='text-xl font-normal' htmlFor="typehere">{props.label}</label> 
       <input
         type={props.type}
         placeholder={props.placeholder}

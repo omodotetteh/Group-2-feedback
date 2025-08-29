@@ -108,7 +108,7 @@ function CoworkingForm () {
                 onChange={handleChange}
            />
 
-        <label className="block mb-2 font-medium">Is there anything we could do to significantly improve our service?</label>
+        <label className='text-xl font-normal'>Is there anything we could do to significantly improve our service?</label>
         <textarea
           name="improvement"
           rows="4"

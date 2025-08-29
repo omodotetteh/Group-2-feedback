@@ -147,7 +147,7 @@ function Studioform() {
           name="likely_to_recommend"
        />
 
-      <label className="block mb-2 font-medium">
+      <label className='text-xl font-normal'>
           Do you have any other comments or suggestions for improving this service?
           <textarea
             name="suggest_improvement"
