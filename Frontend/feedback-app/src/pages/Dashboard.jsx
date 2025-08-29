@@ -1,8 +1,18 @@
 import React, { useState } from 'react';
 import logo from '../assets/logo.png'
+import Button from '../components/Button';
+import { Link, useNavigate } from 'react-router-dom'
 
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout =()=>{
+    localStorage.removeItem("username");
+    localStorage.removeItem("password");
+    navigate("/adminlogin")
+  }
+
   return (
     <div className="flex h-screen bg-gray-50">
       {/* Mobile Sidebar Overlay */}
@@ -24,7 +34,7 @@ const Dashboard = () => {
           ✕
         </button>
         
-      <img src={logo} alt="logo" className='' />
+      <Link to="/"><img src={logo} alt="logo" className='' /></Link>
         
         <div className="mb-8">
           <h2 className="text-lg font-semibold mb-4">Businesses</h2>
@@ -34,6 +44,16 @@ const Dashboard = () => {
                 <a href="#" className="block hover:text-blue-300 py-1">{item}</a>
               </li>
             ))}
+
+            <div className='flex justify-center mt-6'>
+              <Button 
+              className="bg-[#1B9407] w-60"
+              onClick={handleLogout}
+              text="Sign Out"
+              />
+            </div>
+
+
           </ul>
         </div>
       </div>

@@ -25,7 +25,7 @@ function GeneralFeedback() {
         };
 
   return (
-    <div className="flex flex-col items-center mt-20 px-6 py-10 gap-10 border-2 border-[#33026C] rounded-xl w-[90%] max-w-7xl mx-auto">
+    <div className="flex flex-col items-center mt-20 px-6 py-10 gap-10 border-2 border-[#33026C] rounded-xl w-[75%] max-w-7xl mx-auto">
       
       <div className="max-w-[567px] gap-3 text-center">
         <h3 className="text-[40px] font-medium">General Feedback</h3>
@@ -72,6 +72,7 @@ function GeneralFeedback() {
             
             <div className='flex justify-center mt-6'>
               <Button 
+              className="bg-[#3B027D] w-72"
               type="submit" 
               text="Submit"
               />

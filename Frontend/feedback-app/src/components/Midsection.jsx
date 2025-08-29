@@ -3,16 +3,18 @@ import Teacher from "../assets/baner-pic.png"
 
 function Midsection() {
   return (
-    <div className="flex bg-[#33026C] w-full text-white justify-between items-start mt-20 py-11 px-16">
+    <div className="flex bg-[#33026C]  text-white justify-between items-start mt-20 py-11 px-16 w-screen max-w-full">
       
       <div className="max-w-[573px] flex flex-col items-start justify-between gap-6 ">
         <h3 className="text-[40px] font-semibold w-full">Innovate. Connect. Transform</h3>
         <p className="text-4xl font-medium leading-relaxed max-w-[437px]">
           Your Tech Future with Netisens ICT
         </p>
-        <button className="bg-[#1B9407] h-[76px] max-w-[359px] p-2.5 gap-2.5 text-xl font-semibold text-white hover:cursor-pointer hover:bg-[hsl(109,100%,32%)] rounded-xl">
+        <a href="https://netisens.com" target='_blank' rel='noopener noreferer'>
+          <button className="bg-[#1B9407] h-[76px] max-w-[359px] p-2.5 gap-2.5 text-xl font-semibold text-white hover:cursor-pointer hover:bg-[hsl(109,100%,32%)] rounded-xl">
           Visit our website to learn more
         </button>
+        </a>
       </div>
 
       <img src={Teacher} alt="netizens class tutor" className="rounded my-10" />
